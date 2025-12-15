@@ -40,7 +40,7 @@ Let's parse the coding pane to understand how to structure basic python script. 
 
 | Header | Intro message | Setup | Actual script | 
 | ------ | ------------- | ----- | ------------- |
-| <img src="./ex1Imgs/codeHeader.png" alt="Description" width="250"> | <img src="./ex1Imgs/codeIntro.png" alt="Description" width="250"> | <img src="./ex1Imgs/CodeSetup.png" alt="Description" width="250"> | <img src="./ex1Imgs/CodeActual.png" alt="Description" width="250"> |
+| <img src="./ex1Imgs/codeHeader.png" alt="Description" width="250"> | <img src="./ex1Imgs/codeIntro.png" alt="Description" width="250"> | <img src="./ex1Imgs/codeSetup.png" alt="Description" width="250"> | <img src="./ex1Imgs/codeActual.png" alt="Description" width="250"> |
 | The header is where you load modules or their subpars. More bellow. | Intro message is optional, but provides a good way to check your code. | Setup is where you assign pins and their functions, variables etc. | Finally your actual code will follow. The code here is very short. | 
 
 <br>
