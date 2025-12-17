@@ -10,6 +10,6 @@ You can choose whether to implement a blocking or non-blocking code. There likel
 
 | Header | Intro message | 
 | ------ | ------------- | 
-| <img src="./ex3Imgs/blockingCode.png" alt="Blocking code"> | <img src="./ex3Imgs/nonBlockingCode.png" alt="Blocking code">
+| <img src="./ex3imgs/blockingCode.png" alt="Blocking code"> | <img src="./ex3imgs/nonBlockingCode.png" alt="Blocking code">
 
 :warning: Observe the outcome in the command line carefully. Hopefully, it will work better this time. If you still get multiple clicks, try varying the amount of "idle" time in your code. That is your sleep time or the `ticks_diff()` value. 

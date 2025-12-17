@@ -10,7 +10,7 @@ In this exercise, you will be using a rotary potentiometer. That is a device tha
 
 Find a potentiometer in Wokwi menu indicated by the blue + button that says "add a new part". 
 
-<img src="./ex4Imgs/adcImage.png" alt="Wokwi analog digital converter">
+<img src="./ex4imgs/adcImage.png" alt="Wokwi analog digital converter">
 
 <br>
 
@@ -21,7 +21,7 @@ You will see three ports on your potentiometer:
 - VCC should be connected to your constant 3.3V pin (top left).
 
 > :bulb: Not all pins of your device are able to convert analogue signal to digital. In Wokwi, all pins seem to have this capacity, but in your actual HUZZAH32, it is only pins labelled A1 - A5 (pins 25, 26, 39, 36 and 4) and pins D12, D13, D14, D27, D33, D15, D32 (pin 13, 12, 33, 15, 32 and 14). 
- <img src="./ex2imgs/HUZZAH32pinout.png" alt="HUZZAH32 pinout">
+ <img src="./ex4imgs/HUZZAH32pinout.png" alt="HUZZAH32 pinout">
 
 <br>
 
