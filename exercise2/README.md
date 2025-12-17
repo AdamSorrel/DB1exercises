@@ -25,7 +25,7 @@ In the first part of this exercise, we will not be programming. We will make use
 
 ## Connecting two LEDs
 
-<img src="./ex2Imgs/breadboard.png" alt="Breadboard with a button" width="200">
+<img src="./ex2imgs/breadboard.png" alt="Breadboard with a button" width="200">
 
 You see a breadboard with an ESP32 device. GND and 3.3V are connected to the power railings on both sides of the breadboard. 
 
@@ -51,7 +51,7 @@ You see a breadboard with an ESP32 device. GND and 3.3V are connected to the pow
 
 <br>
 
- <img src="./ex2Imgs/opposingTerminal.gif" alt="Breadboard with a button" width="300">
+ <img src="./ex2imgs/opposingTerminal.gif" alt="Breadboard with a button" width="300">
 
  <br>
 
@@ -76,7 +76,7 @@ You see a breadboard with an ESP32 device. GND and 3.3V are connected to the pow
 
 To help you choose a pin as an input, here is the pinout for HUZZAH32. It may look complicated, but for now you we are only interested in the small yellow labels second closest to the device. These are non-dedicated pins which are available for us to use.  
 
- <img src="./ex2Imgs/HUZZAH32pinout.png" alt="HUZZAH32 pinout">
+ <img src="./ex2imgs/HUZZAH32pinout.png" alt="HUZZAH32 pinout">
 
  > :bulb: Some pins have other functions too, such as communication with other devices (e.g. pin 22 and 23, which are also Serial DAta line (SDA) and Serial CLock line (SCL) used in I2C communication protocol used to talk to other devices).
 
