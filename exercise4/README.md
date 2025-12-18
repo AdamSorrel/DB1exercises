@@ -65,19 +65,6 @@ adc1.atten(ADC.ATTN_11DB)
 ```
 Here we are editing the internal parameter `atten` of the previously created class `adc1`. The value of the `ATTN_11DB` is saved in the `ADC` class constructor and we are retrieving it from there. In fact, the variable named `ATTN_11DB` only contains a single integer value. It is saved like this to make your code more understandable. You can check what value hides behind this variable by printing its value, if you'd like. 
 
-### Setting up ADC sensitivity
-
-We can select with what sensitivity we want to detect our voltage. This corresponds to the number of bits retrieved for each measurement. The possible values are as follows:
-
-| Code          | Represented values | Possible decimal values   |  
-| ------------- | ------------------ | ------------------------- |
-| WIDTH_9BIT    | 0 - $2^{9}$        | 0 to 511                  |   
-| WIDTH_10BIT   | 0 - $2^{10}$       | 0 to 1023                 |
-| WIDTH_11BIT   | 0 - $2^{11}$       | 0 to 2047                 |
-| WIDTH_12BIT   | 0 - $2^{12}$       | 0 to 4095                 |
-
-This parameter is accepted by the internal parameter `width` in exactly the same manner as the attenuation coefficient.
-
 ### Reading values from ADC class
 
 Now that we have constructed an `ADC` class instance, passed the appropriate pin to read from, set up its attenuation value to set up the correct voltage range and set up the precision with which we want to measure our values, we are ready to read the analogue voltage values on that pin. 
