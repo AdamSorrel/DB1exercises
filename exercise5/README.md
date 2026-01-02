@@ -1,25 +1,78 @@
-# Wokwi exercise 5: Pulse width modulation (PWM)
+# Wokwi exercise 5: Analog digital converter (ADC)
 
-Open the link to the exercise on the Wokwi platform: [https://wokwi.com/projects/450672575785846785](https://wokwi.com/projects/450672575785846785).
+Open the link to the exercise on the Wokwi platform: [https://wokwi.com/projects/450597286732080129](https://wokwi.com/projects/450597286732080129).
 
-This exercise is a throwback to working with a single LED, but this time we will make it a lot more sophisticated by adding PWM. The setup is very similar to the ADC exercise, so you will get only general information and you'll be left to figure out most of the coding yourselves. If you are unsure what to do, give yourself some time to think about it and check the previous exercise for inspiration. Ask your neighbour if you still cannot figure it out or call upon your TA. 
+In this exercise, you will be using a rotary potentiometer. That is a device that changes its resistance based on how you rotate its knob. A similar device is perhaps used as a volume button of your audio amplifier. 
 
-## Connecting LED
+<br>
 
-All you will need for this exercise is an LED and a resistor (don't forget that one!). You can use 1 K$\Omega$ resistor. Mind the LED polarity. 
+## Connecting potentiometer
 
-> :bulb: It might be a good idea to first check your setup with a simple code to light your LED up to verify that everything is connected properly. You can reuse some code from before.
+Find a potentiometer in Wokwi menu indicated by the blue + button that says "add a new part". 
 
-## Programming 
+<img src="./imgs/adcImage.png" alt="Wokwi analog digital converter">
 
-1. Import the `PWM` and `Pin` classes from the module `machine`.
-2. Set up a pin of your choise as a `PWM` class pin. This class takes several arguments.
-   1. Firstly a `Pin` clas which in this case needs only one argument which is the number of you pin. In the same way we have done for the `ADC` class constructor.
-   2. You can supply additional arguments such as `freq` for frequency. Wokwi cannot really simulate the effect of frequency very well, so choose just 1 kHz for now. You will explore that more in depth in your assignment. 
-   3. You can also supply a starting value of duty cycle with the argument `duty`. With the 1kHz frequency, your maximum duty cycle should be 1023. You can pick any value between that and zero.
-   4. Don't forget to save your constructed `PWM` class into a variable. We will need this variable to edit its duty cycle further.  
-3. Construct an infinite `while` loop and cycle between several duty cycles. You can change duty cycle yousing the parameter `duty` of the class variable you have constructed above. This is done analogously to how we changed the `atten` parameter of the `ADC` class in the previous exercise. 
+<br>
 
-## Expected outcome
+You will see three ports on your potentiometer: 
 
-You should see your LED changing brightness. In Wokwi, this animation has certain limitations, but you will see better when we work with HUZZAH32 device. 
+- GND means **ground** and should be connected to the ground of your device (also called GND)
+- SIG in the middle stands for **signal** and it should be connected one of your ADC pins (see bellow).
+- VCC should be connected to your constant 3.3V pin (top left).
+
+> :bulb: Not all pins of your device are able to convert analogue signal to digital. In Wokwi, all pins seem to have this capacity, but in your actual HUZZAH32, it is only pins labelled A1 - A5 (pins 25, 26, 39, 36 and 4) and pins D12, D13, D14, D27, D33, D15, D32 (pin 13, 12, 33, 15, 32 and 14). 
+ <img src="./imgs/HUZZAH32pinout.png" alt="HUZZAH32 pinout">
+
+<br>
+
+Once you have connected your potentiometer, it is time to start programming. 
+
+<br>
+
+## Device programming
+
+You can start your program by importing all necessary functions.
+
+```python
+from machine import Pin, ADC
+from utime import sleep
+```
+
+Next we continue to declarations of pins. This case requires only one pin of your choice, which is the one you connected the SIG pin of your potentiometer. 
+
+We will use the **class** `ADC` which we imported above. This class accepts one argument, which is another class `Pin()` with single argument, which is your pin number. This will look as follows:
+
+```python
+adc1 = ADC(Pin(<num>))
+# <num> should be replaced by the number of your chosen pin. 
+```
+### Establishing the attenuation coefficient
+
+:warning: By default, the input voltage to the ADC pin can be between 0V and 1V **only**. If we need to measure values above that range, we need to implement attenuation. This we we can scale the voltage to be between 0-1.34V, 0-2V and 0-3.6V.
+The following attenuation values are available:
+
+| Code          | Attenuation value | Voltage Range [V] |  
+| ------------- | ----------------- | ----------------- |
+| ATTN_0DB      | 1/1               | 0 to 1            |   
+| ATTN_2_5DB    | 1/1.34            | 0 to 1.34         |
+| ATTN_6DB      | 1/2               | 0 to 2            |
+| **ATTN_11DB** | **1/3.6**         | **0 to 3.6**      |
+
+As you have perhaps guessed already, the last one is the one relevant to our voltage range. The following part of the code will therefore be:
+
+```python
+adc1.atten(ADC.ATTN_11DB) 
+```
+Here we are editing the internal parameter `atten` of the previously created class `adc1`. The value of the `ATTN_11DB` is saved in the `ADC` class constructor and we are retrieving it from there. In fact, the variable named `ATTN_11DB` only contains a single integer value. It is saved like this to make your code more understandable. You can check what value hides behind this variable by printing its value, if you'd like. 
+
+### Reading values from ADC class
+
+Now that we have constructed an `ADC` class instance, passed the appropriate pin to read from, set up its attenuation value to set up the correct voltage range and set up the precision with which we want to measure our values, we are ready to read the analogue voltage values on that pin. 
+
+To do that, we need to call `adc1` class functions to read its value. We have several to choose from. We will choose `read_uv()` which returns values in micro volts (μV). 
+
+## Final task
+
+Construct an infinite while loop that reads voltage values from your `adc1` class using its `read_uv()` function every half a second. Calculate the value in V instead of the supplied μV and print the value throuth the serial port using the `print()` function. 
+
+>:bulb: You can use an f-string formatting for prettiness sake. Just a reminder, the constructor is `f"string {code}"` where "string" will get printed literally and all code in curly brackets will get interpreted (e.g. values of variables will get printed). 
