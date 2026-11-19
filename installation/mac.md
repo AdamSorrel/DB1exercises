@@ -8,7 +8,7 @@ The installation script will setup the working environment within itself. This i
 
 When choosing where you want to work from, ensure that there are no blank spaces in your path. The picture bellow are illustrative from a Windows computer, but apply on Mac as well. 
 
-![](./blank%20spaces.png)
+![](./images/blank%20spaces.png)
 
 Content of the file 
 After unzipping, you will find several scripts in the new folder. These are:
@@ -25,7 +25,7 @@ Using Finder, go to the folder where you have downloaded the db1_mac.zip file. T
 
 Once in the installation folder, double click on the bar at the bottom of the window showing the path. Right click on the db1_mac directory and from the resulting menu, select "Open in terminal" (see bellow). 
 
-![](./macOpenInTerminal.png)
+![](./images/macOpenInTerminal.png)
 
 This will open the terminal window already in the directory where you can execute the installation scripts. You can execute the installation by running:
 
@@ -68,4 +68,4 @@ After successfully completing a factory reset of your HUZZAH32 board, you can st
 
 When changing into your installation folder, you might be shown the following message. You can tick the checkbox to avoid it appearing every time you open this folder in VS Code and then proceed to click on "Yes, I trust the authors".  
 
-Trust authors
+![](./images/vsCode.png)

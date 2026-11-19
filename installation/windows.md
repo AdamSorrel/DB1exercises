@@ -2,7 +2,7 @@
 
 You will find a zip file in this folder called db1_win.zip. This file contains installation scripts that will help you set up an environment to program with your HUZZAH32 board, monitor it while it is running and eventually download measurement data from it.
 
-![](blank%20spaces.png)
+![](images/blank%20spaces.png)
 
 ## Important considerations before installation
 
@@ -28,11 +28,11 @@ Install the necessary programs by right clicking on db1_install.bat and choosing
 
 You might be warned by a Windows Defender system (see bellow). You can click on More info and select "Run anyway".
 
-![](./adminPrivileges.png)
+![](./images/adminPrivileges.png)
 
 The installation can take several minutes to finish and at the end it should provide a list of installed components and their status (see bellow). If everything went well, the installation script will launch a Visual Studio Code instance with a default project that is present in the db1 subdirectory of your installation folder. You can close it for now.
 
-![](./success.png)
+![](./images/success.png)
 
 The installation script will also produce several log files in the same directory with the script that can help you figure out what the scripts are doing, and you can use them for getting help if you have trouble installing the tools.
 
@@ -56,4 +56,4 @@ After successfully completing a factory reset of your HUZZAH32 board, you can st
 
 When changing into your installation folder, you might be shown the following message. You can tick the checkbox to avoid it appearing every time you open this folder in VS Code and then proceed to click on "Yes, I trust the authors". 
 
-![](./vsCode.png)
+![](./images/vsCode.png)
